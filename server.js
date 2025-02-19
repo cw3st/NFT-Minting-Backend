@@ -4,7 +4,7 @@ const cors = require("cors");
 
 const app = express();
 const port = 5000;
-const mintingDB = "mongodb://localhost:27017/NFT_Minting";
+const mintingDB = "mongodb+srv://cytriccecdev:cytricproject0@cluster0.xhct8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 // Middleware
 app.use(cors());
