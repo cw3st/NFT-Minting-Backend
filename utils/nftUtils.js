@@ -1,5 +1,3 @@
-const axios = require("axios");
-
 /**
  * Function to check if a tokenId exists on-chain
  * @param {number} tokenId
