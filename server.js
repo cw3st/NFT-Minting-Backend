@@ -7,8 +7,21 @@ const app = express();
 const port = 5000;
 const mintingDB = "mongodb+srv://cytriccecdev:cytricproject0@cluster0.xhct8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
+
+const connectionparams = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
+
+const corsOption = {
+  credentials: true,
+  origin: ["http://localhost:3000", "https://nft-minting-frontend.netlify.app"],
+  methods: ["GET", "POST"],
+  optionSucessStatus: 200,
+};
+
+
 // Middleware
-app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
