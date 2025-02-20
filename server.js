@@ -19,6 +19,7 @@ const corsOption = {
   methods: ["GET", "POST"],
   optionSucessStatus: 200,
 };
+app.use(cors(corsOption));
 
 
 // Middleware
