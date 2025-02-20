@@ -30,7 +30,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 
 // Routes
-app.use("/auth", require("./routes/auth"));
 app.use("/nft", require("./routes/nftRoutes"));
 
 app.listen(port, () => {
