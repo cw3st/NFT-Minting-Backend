@@ -4,7 +4,55 @@ const User = require("../models/User");
 
 const router = express.Router();
 
-// Register User
+/**
+
+ * @swagger
+
+ * /auth/register:
+
+ *   post:
+
+ *     summary: Register a new user
+
+ *     description: Creates a new user account with hashed password
+
+ *     requestBody:
+
+ *       required: true
+
+ *       content:
+
+ *         application/json:
+
+ *           schema:
+
+ *             type: object
+
+ *             properties:
+
+ *               username:
+
+ *                 type: string
+
+ *               email:
+
+ *                 type: string
+
+ *               password:
+
+ *                 type: string
+
+ *     responses:
+
+ *       201:
+
+ *         description: User registered successfully
+
+ *       400:
+
+ *         description: Email already exists
+
+ */
 router.post("/register", async (req, res) => {
   try {
     const { email, password, walletAddress } = req.body;
@@ -21,7 +69,52 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// Login User
+
+/**
+
+ * @swagger
+
+ * /auth/login:
+
+ *   post:
+
+ *     summary: User login
+
+ *     description: Authenticates user and returns JWT token
+
+ *     requestBody:
+
+ *       required: true
+
+ *       content:
+
+ *         application/json:
+
+ *           schema:
+
+ *             type: object
+
+ *             properties:
+
+ *               email:
+
+ *                 type: string
+
+ *               password:
+
+ *                 type: string
+
+ *     responses:
+
+ *       200:
+
+ *         description: User logged in successfully, returns JWT token
+
+ *       400:
+
+ *         description: Invalid credentials
+
+ */
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
