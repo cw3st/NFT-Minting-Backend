@@ -9,30 +9,47 @@ const NFT = require("../models/NFT.js");
  * @param {string} walletAddress
  * @returns {object} Stored NFT data
  */
+// const storeNFTMetadata = async (name, description, imageUrl, walletAddress) => {
+//   if (!name || !description || !imageUrl || !walletAddress) {
+//     throw new Error("Missing required NFT metadata fields.");
+//   }
+
+//   // Generate a unique tokenId (UUID)
+//   const tokenId = uuidv4();
+
+//   // Create and save the NFT in the database
+//   const nft = new NFT({
+//     tokenId,
+//     name,
+//     description,
+//     imageUrl,
+//     walletAddress,
+//     metadataUrl: `https://example.com/metadata/${tokenId}.json`,
+//   });
+
+//   await nft.save();
+
+//   return {
+//     tokenId,
+//     metadataUrl: nft.metadataUrl,
+//   };
+// };
+
 const storeNFTMetadata = async (name, description, imageUrl, walletAddress) => {
-  if (!name || !description || !imageUrl || !walletAddress) {
-    throw new Error("Missing required NFT metadata fields.");
-  }
-
-  // Generate a unique tokenId (UUID)
-  const tokenId = uuidv4();
-
-  // Create and save the NFT in the database
-  const nft = new NFT({
-    tokenId,
-    name,
-    description,
-    imageUrl,
-    walletAddress,
-    metadataUrl: `https://example.com/metadata/${tokenId}.json`,
-  });
-
-  await nft.save();
-
-  return {
-    tokenId,
-    metadataUrl: nft.metadataUrl,
+    try {
+      // Generate a unique token ID (if not using blockchain yet)
+      const tokenId = Math.floor(Math.random() * 1000000); // Temporary random ID
+  
+      // Simulate storing metadata (Replace with DB storage if needed)
+      const metadataUrl = `ongodb+srv://cytriccecdev:cytricproject0@cluster0.xhct8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+  
+      return { tokenId, metadataUrl };
+    } catch (error) {
+      console.error("Error storing NFT metadata:", error);
+      throw error;
+    }
   };
-};
+  
+  module.exports = { storeNFTMetadata }; // ✅ Make sure it’s exported as an object
 
 module.exports = { storeNFTMetadata };

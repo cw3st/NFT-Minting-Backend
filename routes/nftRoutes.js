@@ -1,6 +1,6 @@
 const express = require ("express");
 const verifyWalletSignaturefrom = require("../utils/verifyWallet.js");
-const storeNFTMetadata  = require("../controllers/nftController.js");
+const { storeNFTMetadata }  = require("../controllers/nftController.js");
 
 const router = express.Router();
 
