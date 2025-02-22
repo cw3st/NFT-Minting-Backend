@@ -50,6 +50,5 @@ const storeNFTMetadata = async (name, description, imageUrl, walletAddress) => {
     }
   };
   
-  module.exports = { storeNFTMetadata }; // ✅ Make sure it’s exported as an object
 
 module.exports = { storeNFTMetadata };
