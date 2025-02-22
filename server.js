@@ -4,7 +4,7 @@ const cors = require("cors");
 const swaggerUi = require("swagger-ui-express")
 const specs = require("./swaggerConfig")
 const app = express();
-const port = 5000;
+const port = 4000;
 const mintingDB = "mongodb+srv://cytriccecdev:cytricproject0@cluster0.xhct8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 
