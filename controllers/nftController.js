@@ -46,7 +46,7 @@ const storeNFTMetadata = async (name, description, imageUrl, walletAddress) => {
       name,
       description,
       imageUrl,
-      walletAddress,
+      owner: walletAddress,
       metadataUrl: `mongodb+srv://cytriccecdev:cytricproject0@cluster0.xhct8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
     });
     await nft.save();
