@@ -11,7 +11,7 @@ router.post("/store", async (req, res) => {
     return res.status(400).json({ error: "Missing wallet verification data" });
   }
 
-  const isValidSignature = verifyWalletSignature(message, signature, walletAddress);
+  const isValidSignature = verifyWalletSignaturefrom(message, signature, walletAddress);
 
   if (!isValidSignature) {
     return res.status(401).json({ error: "Invalid wallet signature" });

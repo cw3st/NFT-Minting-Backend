@@ -1,6 +1,6 @@
-const { ethers } = require ("ethers") ;
+const { ethers } = require("ethers") ;
 
-export const verifyWalletSignature = (message, signature, expectedAddress) => {
+const verifyWalletSignature = (message, signature, expectedAddress) => {
   try {
     const recoveredAddress = ethers.utils.verifyMessage(message, signature);
     return recoveredAddress.toLowerCase() === expectedAddress.toLowerCase();
@@ -9,3 +9,5 @@ export const verifyWalletSignature = (message, signature, expectedAddress) => {
     return false;
   }
 };
+
+module.exports = verifyWalletSignature;
