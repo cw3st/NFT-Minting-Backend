@@ -41,9 +41,17 @@ const storeNFTMetadata = async (name, description, imageUrl, walletAddress) => {
       const tokenId = Math.floor(Math.random() * 1000000); // Temporary random ID
   
       // Simulate storing metadata (Replace with DB storage if needed)
-      const metadataUrl = `ongodb+srv://cytriccecdev:cytricproject0@cluster0.xhct8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
-  
-      return { tokenId, metadataUrl };
+      const nft = new NFT({
+      tokenId,
+      name,
+      description,
+      imageUrl,
+      walletAddress,
+      metadataUrl: `mongodb+srv://cytriccecdev:cytricproject0@cluster0.xhct8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
+    });
+    await nft.save();
+
+      return { tokenId, metadataUrl: nft.metadataUrl };
     } catch (error) {
       console.error("Error storing NFT metadata:", error);
       throw error;
