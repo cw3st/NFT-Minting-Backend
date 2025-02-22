@@ -49,6 +49,13 @@ const storeNFTMetadata = async (name, description, imageUrl, walletAddress) => {
       throw error;
     }
   };
+
+
+const getNFTsByWallet = async (walletAddress) => {
+    return await NFT.find({ owner: walletAddress });
+};
+
+module.exports = { getNFTsByWallet };
   
 
 module.exports = { storeNFTMetadata };
