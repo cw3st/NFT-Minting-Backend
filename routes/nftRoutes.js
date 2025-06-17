@@ -8,15 +8,15 @@ const router = express.Router();
 router.post("/store", async (req, res) => {
   const { name, description, imageUrl, walletAddress, message, signature } = req.body;
 
-  // if (!walletAddress || !message || !signature) {
-  //   return res.status(400).json({ error: "Missing wallet verification data" });
-  // }
+  if (!walletAddress || !message || !signature) {
+    return res.status(400).json({ error: "Missing wallet verification data" });
+  }
 
-  // const isValidSignature = verifyWalletSignaturefrom(message, signature, walletAddress);
+  const isValidSignature = verifyWalletSignaturefrom(message, signature, walletAddress);
 
-  // if (!isValidSignature) {
-  //   return res.status(401).json({ error: "Invalid wallet signature" });
-  // }
+  if (!isValidSignature) {
+    return res.status(401).json({ error: "Invalid wallet signature" });
+  }
 
   try {
     const nftData = await storeNFTMetadata(name, description, imageUrl, walletAddress);

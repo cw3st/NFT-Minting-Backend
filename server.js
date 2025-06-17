@@ -1,12 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const swaggerUi = require("swagger-ui-express")
-const specs = require("./swaggerConfig")
+const swaggerUi = require("swagger-ui-express");
+const specs = require("./swaggerConfig");
 const app = express();
-const port = 4000;
-const mintingDB = "mongodb+srv://cytriccecdev:cytricproject0@cluster0.xhct8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-
+const port = 4100;
+const mintingDB =
+  "mongodb+srv://cytriccecdev:cytricproject0@cluster0.xhct8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 const connectionparams = {
   useNewUrlParser: true,
@@ -20,7 +20,6 @@ const corsOption = {
   optionSucessStatus: 200,
 };
 app.use(cors(corsOption));
-
 
 // Middleware
 app.use(express.json());
