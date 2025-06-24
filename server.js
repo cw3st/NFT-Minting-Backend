@@ -15,7 +15,7 @@ const connectionparams = {
 
 const corsOption = {
   credentials: true,
-  origin: ["http://localhost:3000", "https://nft-minting-frontend.netlify.app"],
+  origin: ["http://localhost:3000", "https://nft-minting-frontend-ten.vercel.app/"],
   methods: ["GET", "POST"],
   optionSucessStatus: 200,
 };
